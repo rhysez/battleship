@@ -1,17 +1,18 @@
 'use strict'
 
-const Ship = (length) => {
-    let timesHit = []
-    const hit = () => {
-        timesHit.push(1) // using a number instead of array returns 0, issue with scope/closure 
-        console.log(timesHit)
+const Ship = (size) => {
+    let timesHit = 0
+    function hit(){
+        this.timesHit += 1
+        console.log(this.timesHit)
     }
-    let isSunk = false
-    return { length, timesHit, hit, isSunk }
+    function isSunk(){
+        this.timesHit == this.size * 2 ? console.log('Ship sunk') : console.log('Ship not sunk')
+    }
+    return { size, timesHit, hit, isSunk }
 }
 
 let newShip = Ship(2)
-console.log(newShip)
 
-module.exports = add, newShip
+module.exports = newShip
 

@@ -1,5 +1,6 @@
-const Ship = require('./app')
+const newShip = require('./app')
 
-test('checks timesHit is a number', () => {
-    expect(Ship.timesHit).toStrictEqual(0)
-})
+// pass
+test('checks timesHit starts at 0', () => {
+    expect(newShip.timesHit).toStrictEqual(0)
+}) 
