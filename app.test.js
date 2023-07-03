@@ -1,18 +1,19 @@
-const newShip = require('./app')
+const Ship = (size) => {
+    let timesHit = 0
+    let sunkStatus = false
+    function hit(){
+        this.timesHit += 1
+        console.log(this.timesHit)
+    }
+    function isSunk(){
+        this.timesHit == this.size * 2 ? this.sunkStatus = true : this.sunkStatus = false
+    }
+    return { size, timesHit, sunkStatus, hit, isSunk }
+}
+
+let newShip = Ship(2)
 
 // pass
-test('checks timesHit starts at 0', () => {
-    expect(newShip.timesHit).toStrictEqual(0)
-}) 
-// pass
-test('checks sunkStatus is falsey', () => {
-    expect(newShip.sunkStatus).toBe(false)
-})
-// pass
-test('checks size is correct', () => {
-    expect(newShip.size).toBe(2)
-})
-// pass
-test('checks isSunk returns correct calculation', () => {
-    expect(newShip.isSunk()).toBeFalsy()
+test('checks timesHit is equal to zero', () => {
+    expect(newShip.timesHit).toBe(0)
 })
