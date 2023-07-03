@@ -1,19 +1,33 @@
-const Ship = (size) => {
-    let timesHit = 0
-    let sunkStatus = false
-    function hit(){
-        this.timesHit += 1
-        console.log(this.timesHit)
-    }
-    function isSunk(){
-        this.timesHit == this.size * 2 ? this.sunkStatus = true : this.sunkStatus = false
-    }
-    return { size, timesHit, sunkStatus, hit, isSunk }
-}
+import { newShip } from './app.js'
 
-let newShip = Ship(2)
-
-// pass
-test('checks timesHit is equal to zero', () => {
-    expect(newShip.timesHit).toBe(0)
+describe('Ship object tests', () => {
+    // pass
+    test('checks newShip variable is defined', () => {
+        expect(newShip).toBeDefined
+    })
+    // pass
+    test('checks newShip.size is equal to 2', () => {
+        expect(newShip.size).toEqual(2)
+    })
+    // pass
+    test('checks newShip.sunkStatus is falsy', () => {
+        expect(newShip.size).toBeFalsy
+    })
+    // pass
+    test('checks hit() returns timesHit += 1', () => {
+        function hit(){
+            newShip.timesHit += 1
+        }
+        hit()
+        expect(newShip.timesHit).toBe(1)
+    })
+    // pass
+    test('checks isSunk() returns either true or false for sunkStatus', () => {
+        newShip.timesHit = 4
+        function isSunk(){
+            newShip.timesHit == newShip.size * 2 ? newShip.sunkStatus = true : newShip.sunkStatus = false
+        }
+        isSunk()
+        expect(newShip.sunkStatus).toBe(true)
+    })
 })

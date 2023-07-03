@@ -13,3 +13,4 @@ const Ship = (size) => {
     return { size, timesHit, sunkStatus, hit, isSunk }
 }
 
+export let newShip = Ship(2)
