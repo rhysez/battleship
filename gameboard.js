@@ -1,10 +1,19 @@
 import { Ship } from './ship.js'
 
 const Gameboard = (shipSize) => {
-    const board = Array.from(Array(10).keys())
+    const board = []
     const ships = []
     const missedAttacksList = []
     const newShip = Ship(shipSize)
+
+    function createBoard(){ // returns 'i is undefined'
+        for (i = 0; i < 10; i++){
+            for (j = 0; j < 10; i++){
+                board = [`${i}, ${j}`] = 'unselected'
+                console.log(board)
+            }
+        }
+    }
 
     function placeShip(ship, x, y){
         if (x < 0 || x >= 10 || y < 0 || y >= 10){
@@ -13,7 +22,10 @@ const Gameboard = (shipSize) => {
 
     }
 
-    return { board, ships, placeShip, missedAttacksList, createShip }
+    return { board, ships, placeShip, missedAttacksList, newShip, createBoard, placeShip }
 }
 
+let newGameboard = Gameboard(2)
+
+newGameboard.createBoard()
 export { Gameboard }
