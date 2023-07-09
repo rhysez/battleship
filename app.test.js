@@ -1,4 +1,5 @@
 import { Ship } from './ship.js'
+import { ships } from './ship.js'
 import { Gameboard } from './gameboard.js'
 
 describe('Ship object tests', () => {
@@ -31,6 +32,10 @@ describe('Ship object tests', () => {
         }
         isSunk()
         expect(newShip.sunk).toBe(true)
+    })
+
+    test('ships object returns correct ship', () => {
+        expect(ships.carrier).toBe(Ship(5))
     })
 })
 

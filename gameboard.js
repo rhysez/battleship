@@ -1,15 +1,15 @@
 import { Ship } from './ship.js'
 
-const Gameboard = (shipSize) => {
-    const board = []
-    const ships = []
-    const missedAttacksList = []
-    const newShip = Ship(shipSize)
+const Gameboard = () => {
+    let board = []
+    let ships = []
+    let missedAttacksList = []
 
-    function createBoard(){ // returns 'i is undefined'
-        for (i = 0; i < 10; i++){
-            for (j = 0; j < 10; i++){
-                board = [`${i}, ${j}`] = 'unselected'
+    // generates co-ordinates for the board
+    function createBoard(){ 
+        for (let i = 0; i < 10; i++){
+            for (let j = 0; j < 10; j++){
+                board = [`${i}, ${j}`]
                 console.log(board)
             }
         }
@@ -22,10 +22,10 @@ const Gameboard = (shipSize) => {
 
     }
 
-    return { board, ships, placeShip, missedAttacksList, newShip, createBoard, placeShip }
+    return { board, ships, placeShip, missedAttacksList, createBoard, placeShip }
 }
 
-let newGameboard = Gameboard(2)
+let newGameboard = Gameboard()
 
 newGameboard.createBoard()
 export { Gameboard }
