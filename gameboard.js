@@ -9,10 +9,10 @@ const Gameboard = () => {
     function createBoard(){ 
         for (let i = 0; i < 10; i++){
             for (let j = 0; j < 10; j++){
-                board = [`${i}, ${j}`]
-                console.log(board)
+                board.push([`${i}, ${j}`])
             }
         }
+        console.log(board)
     }
 
     function placeShip(ship, x, y){
