@@ -1,15 +1,14 @@
-const Ship = (size) => {
-  let placementX = null;
-  let placementY = null;
+const Ship = (name, size) => {
+  let placement = null
   let hits = 0;
   let sunk = false;
   function hit() {
-    this.timesHit += 1;
+    this.hits += 1;
   }
   function isSunk() {
     this.hits === this.size ? (this.sunk = true) : (this.sunk = false);
   }
-  return { size, hits, sunk, hit, isSunk, placementX, placementY };
+  return { name, size, hits, sunk, hit, isSunk, placement };
 };
 
 export { Ship };

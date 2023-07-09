@@ -5,10 +5,10 @@ const Gameboard = () => {
   let missedAttacksList = [];
 
   const fleet = {
-    carrier: Ship(5),
-    battleship: Ship(4),
-    cruiser: Ship(3),
-    destroyer: Ship(2),
+    carrier: Ship("Carrier", 5),
+    battleship: Ship("Battleship", 4),
+    cruiser: Ship("Cruiser", 3),
+    destroyer: Ship("Destroyer", 2),
   };
 
   // generates co-ordinates for the board
@@ -21,20 +21,41 @@ const Gameboard = () => {
   }
 
   // places ship at chosen co-ordinates
-  function placeShip(ship, x, y) {
-    if (x < 0 || x >= 10 || y < 0 || y >= 10) {
-      throw new Error("Invalid co-ordinates.");
-    }
-
-    ship.placementX = x;
-    ship.placementY = y;
-
-    let placement = `${x}, ${y}`;
-    board[placement] = ship;
+  function placeShip(ship, coords) {
+    createBoard()
+    ship.placement = coords
+    board[coords] = ship;
   }
 
-  function recieveAttack() {
+  // recieves an attack on a ship, otherwise adds coord to
+  // missed attack list
+  function recieveAttack(coords) {
+    if (board[coords] == fleet.carrier){
+        fleet.carrier.hit()
+        fleet.carrier.isSunk()
+    } 
 
+    if (board[coords] == fleet.battleship){
+        fleet.battleship.hit()
+        fleet.battleship.isSunk()
+    } 
+
+    if (board[coords] == fleet.cruiser){
+        fleet.cruiser.hit()
+        fleet.cruiser.isSunk()
+    } 
+
+    if (board[coords] == fleet.destroyer){
+        fleet.destroyer.hit()
+        fleet.destroyer.isSunk()
+    }
+
+    else {
+        console.log('Missed attack!')
+        missedAttacksList.push(coords)
+    }
+
+    console.log(`Missed co-ordinates list: ${missedAttacksList}`)
   }
 
   return {
@@ -50,5 +71,8 @@ const Gameboard = () => {
 
 let newGameboard = Gameboard();
 
-newGameboard.placeShip(newGameboard.fleet.carrier, 2, 4);
+// checking results
+newGameboard.placeShip(newGameboard.fleet.carrier, 98)
+newGameboard.recieveAttack(97);
+
 export { Gameboard };
