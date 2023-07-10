@@ -69,7 +69,7 @@ const Gameboard = () => {
   };
 };
 
-let newGameboard = newGameboard()
+let newGameboard = Gameboard()
 newGameboard.placeShip(newGameboard.fleet.carrier, 98)
 newGameboard.recieveAttack(97); 
 
