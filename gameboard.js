@@ -27,8 +27,13 @@ const Gameboard = () => {
     console.log(`---${ship.name} has been placed at ${coords}---`);
   }
 
-  function gameOver(){
-
+  function gameOver() {
+    fleet.carrier.hits == 5 &&
+    fleet.battleship.hits == 4 &&
+    fleet.cruiser.hits == 3 &&
+    fleet.destroyer.hits == 2
+      ? console.log("-----GAME OVER!-----")
+      : null;
   }
 
   // recieves an attack on a ship, otherwise adds coord to
@@ -51,6 +56,7 @@ const Gameboard = () => {
       missedAttacksList.push(coords);
       console.log(`Missed co-ordinates list: ${missedAttacksList}`);
     }
+    gameOver();
   }
 
   return {
@@ -73,20 +79,20 @@ newGameboard.recieveAttack(98);
 newGameboard.recieveAttack(98);
 newGameboard.recieveAttack(98);
 
-newGameboard.placeShip(newGameboard.fleet.cruiser, 24)
-newGameboard.recieveAttack(24)
-newGameboard.recieveAttack(24)
-newGameboard.recieveAttack(24)
+newGameboard.placeShip(newGameboard.fleet.cruiser, 24);
+newGameboard.recieveAttack(24);
+newGameboard.recieveAttack(24);
+newGameboard.recieveAttack(24);
 
 newGameboard.placeShip(newGameboard.fleet.destroyer, 52);
-newGameboard.recieveAttack(52)
-newGameboard.recieveAttack(52)
+newGameboard.recieveAttack(52);
+newGameboard.recieveAttack(52);
 
-newGameboard.placeShip(newGameboard.fleet.carrier, 5)
-newGameboard.recieveAttack(5)
-newGameboard.recieveAttack(5)
-newGameboard.recieveAttack(5)
-newGameboard.recieveAttack(5)
-newGameboard.recieveAttack(5)
+newGameboard.placeShip(newGameboard.fleet.carrier, 5);
+newGameboard.recieveAttack(5);
+newGameboard.recieveAttack(5);
+newGameboard.recieveAttack(5);
+newGameboard.recieveAttack(5);
+newGameboard.recieveAttack(5);
 
 export { Gameboard };
