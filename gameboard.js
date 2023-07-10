@@ -27,6 +27,10 @@ const Gameboard = () => {
     console.log(`---${ship.name} has been placed at ${coords}---`);
   }
 
+  function gameOver(){
+
+  }
+
   // recieves an attack on a ship, otherwise adds coord to
   // missed attack list
   function recieveAttack(coords) {
@@ -56,6 +60,7 @@ const Gameboard = () => {
     createBoard,
     placeShip,
     fleet,
+    gameOver,
     recieveAttack,
   };
 };
@@ -65,10 +70,23 @@ newGameboard.createBoard();
 newGameboard.placeShip(newGameboard.fleet.battleship, 98);
 newGameboard.recieveAttack(98);
 newGameboard.recieveAttack(98);
-newGameboard.recieveAttack(85);
+newGameboard.recieveAttack(98);
+newGameboard.recieveAttack(98);
+
+newGameboard.placeShip(newGameboard.fleet.cruiser, 24)
+newGameboard.recieveAttack(24)
+newGameboard.recieveAttack(24)
+newGameboard.recieveAttack(24)
 
 newGameboard.placeShip(newGameboard.fleet.destroyer, 52);
 newGameboard.recieveAttack(52)
-newGameboard.recieveAttack(50)
+newGameboard.recieveAttack(52)
+
+newGameboard.placeShip(newGameboard.fleet.carrier, 5)
+newGameboard.recieveAttack(5)
+newGameboard.recieveAttack(5)
+newGameboard.recieveAttack(5)
+newGameboard.recieveAttack(5)
+newGameboard.recieveAttack(5)
 
 export { Gameboard };
