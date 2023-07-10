@@ -39,23 +39,34 @@ const Gameboard = () => {
   // recieves an attack on a ship, otherwise adds coord to
   // missed attack list
   function recieveAttack(coords) {
-    if (board[coords] == fleet.carrier) {
-      fleet.carrier.hit();
-      fleet.carrier.isSunk();
-    } else if (board[coords] == fleet.battleship) {
-      fleet.battleship.hit();
-      fleet.battleship.isSunk();
-    } else if (board[coords] == fleet.cruiser) {
-      fleet.cruiser.hit();
-      fleet.cruiser.isSunk();
-    } else if (board[coords] == fleet.destroyer) {
-      fleet.destroyer.hit();
-      fleet.destroyer.isSunk();
-    } else {
-      console.log("Shot fired: Missed attack!");
-      missedAttacksList.push(coords);
-      console.log(`Missed co-ordinates list: ${missedAttacksList}`);
+
+    switch (true) {
+      case board[coords] == fleet.carrier:
+        fleet.carrier.hit();
+        fleet.carrier.isSunk();
+        break;
+
+      case board[coords] == fleet.battleship:
+        fleet.battleship.hit();
+        fleet.battleship.isSunk();
+        break;
+      
+      case board[coords] == fleet.cruiser:
+        fleet.cruiser.hit();
+        fleet.cruiser.isSunk();
+        break;
+      
+      case board[coords] == fleet.destroyer:
+        fleet.destroyer.hit();
+        fleet.destroyer.isSunk();
+        break;
+
+      default:
+        console.log("Shot fired: Missed attack!");
+        missedAttacksList.push(coords);
+        console.log(`Missed co-ordinates list: ${missedAttacksList}`);
     }
+    
     gameOver();
   }
 
@@ -72,7 +83,7 @@ const Gameboard = () => {
 };
 
 let newGameboard = Gameboard();
-/* newGameboard.createBoard();
+newGameboard.createBoard();
 newGameboard.placeShip(newGameboard.fleet.battleship, 98);
 newGameboard.recieveAttack(98);
 newGameboard.recieveAttack(98);
@@ -93,6 +104,6 @@ newGameboard.recieveAttack(5);
 newGameboard.recieveAttack(5);
 newGameboard.recieveAttack(5);
 newGameboard.recieveAttack(5);
-newGameboard.recieveAttack(5); */
+newGameboard.recieveAttack(5);
 
 export { Gameboard };
