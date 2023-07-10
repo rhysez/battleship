@@ -72,7 +72,7 @@ const Gameboard = () => {
 };
 
 let newGameboard = Gameboard();
-newGameboard.createBoard();
+/* newGameboard.createBoard();
 newGameboard.placeShip(newGameboard.fleet.battleship, 98);
 newGameboard.recieveAttack(98);
 newGameboard.recieveAttack(98);
@@ -93,6 +93,6 @@ newGameboard.recieveAttack(5);
 newGameboard.recieveAttack(5);
 newGameboard.recieveAttack(5);
 newGameboard.recieveAttack(5);
-newGameboard.recieveAttack(5);
+newGameboard.recieveAttack(5); */
 
 export { Gameboard };
