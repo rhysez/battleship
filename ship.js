@@ -4,7 +4,7 @@ const Ship = (name, size) => {
   let sunk = false;
   function hit() {
     this.hits += 1;
-    console.log(`${this.name} took a hit! Total hits are now ${this.hits}`);
+    console.log(`Shot fired: ${this.name} took a hit! Total hits are now ${this.hits}`);
   }
   function isSunk() {
     this.hits === this.size
