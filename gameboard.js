@@ -22,9 +22,9 @@ const Gameboard = () => {
 
   // places ship at chosen co-ordinates
   function placeShip(ship, coords) {
-    createBoard()
     ship.placement = coords
     board[coords] = ship;
+    console.log(`${ship} has been placed at ${coords}`)
   }
 
   // recieves an attack on a ship, otherwise adds coord to
@@ -69,10 +69,8 @@ const Gameboard = () => {
   };
 };
 
-let newGameboard = Gameboard();
-
-// checking results
+let newGameboard = newGameboard()
 newGameboard.placeShip(newGameboard.fleet.carrier, 98)
-newGameboard.recieveAttack(97);
+newGameboard.recieveAttack(97); 
 
 export { Gameboard };
