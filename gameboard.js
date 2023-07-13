@@ -39,7 +39,6 @@ const Gameboard = () => {
   // recieves an attack on a ship, otherwise adds coord to
   // missed attack list
   function recieveAttack(coords) {
-
     switch (true) {
       case board[coords] == fleet.carrier:
         fleet.carrier.hit();
