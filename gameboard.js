@@ -86,6 +86,9 @@ const Gameboard = () => {
         console.log(
           `Shot fired at ${coords}: Carrier took a hit! Total hits are now ${fleet.carrier.hits}`
         );
+        if (fleet.carrier.sunk === true){
+          console.log(`Carrier has sunk!`)
+        }
         break;
 
       case board[coords] == fleet.battleship:
@@ -94,6 +97,9 @@ const Gameboard = () => {
         console.log(
           `Shot fired at ${coords}: Battleship took a hit! Total hits are now ${fleet.battleship.hits}`
         );
+        if (fleet.battleship.sunk === true){
+          console.log(`Battleship has sunk!`)
+        }
         break;
 
       case board[coords] == fleet.cruiser:
@@ -102,6 +108,9 @@ const Gameboard = () => {
         console.log(
           `Shot fired at ${coords}: Cruiser took a hit! Total hits are now ${fleet.cruiser.hits}`
         );
+        if (fleet.cruiser.sunk === true){
+          console.log(`Cruiser has sunk!`)
+        }
         break;
 
       case board[coords] == fleet.destroyer:
@@ -110,6 +119,9 @@ const Gameboard = () => {
         console.log(
           `Shot fired at ${coords}: Destroyer took a hit! Total hits are now ${fleet.destroyer.hits}`
         );
+        if (fleet.destroyer.sunk === true){
+          console.log(`Destroyer has sunk!`)
+        }
         break;
 
       default:

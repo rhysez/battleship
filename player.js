@@ -30,6 +30,9 @@ player.gameboard.placeShip(player.gameboard.fleet.carrier, 10)
 player.attack(computer, 15)
 computer.attack(player, computer.returnRandomCoord())
 player.attack(computer, 16)
+player.attack(computer, 16)
+player.attack(computer, 16)
+player.attack(computer, 16)
 console.log(computer.gameboard.board)
 
 
