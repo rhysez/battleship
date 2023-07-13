@@ -11,7 +11,7 @@ const Player = () => {
     }
 
     // takes enemy parameter (player or computer variable) - working
-    // can take returnRandomCoord() in coord parameter 
+    // can take returnRandomCoord() in coord parameter - working
     function attack(enemy, coord){
         enemy.gameboard.recieveAttack(coord)
     }
@@ -19,7 +19,7 @@ const Player = () => {
     return { gameboard, isTurn, returnRandomCoord, attack }
 }
 
-const computer = Player()
+/* const computer = Player()
 const player = Player() 
 
 player.gameboard.createBoard()
@@ -30,7 +30,7 @@ player.gameboard.placeShip(player.gameboard.fleet.destroyer, 10)
 player.attack(computer, 15)
 computer.attack(player, computer.returnRandomCoord())
 player.attack(computer, 15)
-console.log(computer.gameboard.board)
+console.log(computer.gameboard.board) */
 
 
 
