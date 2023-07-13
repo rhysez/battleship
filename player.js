@@ -19,18 +19,18 @@ const Player = () => {
     return { gameboard, isTurn, returnRandomCoord, attack }
 }
 
-/* const computer = Player()
+const computer = Player()
 const player = Player() 
 
 player.gameboard.createBoard()
 computer.gameboard.createBoard()
-computer.gameboard.placeShip(computer.gameboard.fleet.destroyer, 15)
-player.gameboard.placeShip(player.gameboard.fleet.destroyer, 10)
+computer.gameboard.placeShip(computer.gameboard.fleet.carrier, 15)
+player.gameboard.placeShip(player.gameboard.fleet.carrier, 10)
 
 player.attack(computer, 15)
 computer.attack(player, computer.returnRandomCoord())
-player.attack(computer, 15)
-console.log(computer.gameboard.board) */
+player.attack(computer, 16)
+console.log(computer.gameboard.board)
 
 
 

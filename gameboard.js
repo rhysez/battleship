@@ -21,8 +21,51 @@ const Gameboard = () => {
 
   function placeShip(ship, coords) {
     ship.placement = coords;
-    board[coords] = ship;
-    console.log(`---${ship.name} has been placed at ${coords}---`);
+    switch (true) {
+      case ship.size == 5:
+        board[coords] = ship;
+        board[coords + 1] = ship;
+        board[coords + 2] = ship;
+        board[coords + 3] = ship;
+        board[coords + 4] = ship;
+        console.log(
+          `---${ship.name} has been placed at ${coords}, ${coords + 1}, ${
+            coords + 2
+          }, ${coords + 3}, ${coords + 4}---`
+        );
+        break;
+
+      case ship.size == 4:
+        board[coords] = ship;
+        board[coords + 1] = ship;
+        board[coords + 2] = ship;
+        board[coords + 3] = ship;
+        console.log(
+          `---${ship.name} has been placed at ${coords}, ${coords + 1}, ${
+            coords + 2
+          }, ${coords + 3}---`
+        );
+        break;
+
+      case ship.size == 3:
+        board[coords] = ship;
+        board[coords + 1] = ship;
+        board[coords + 2] = ship;
+        console.log(
+          `---${ship.name} has been placed at ${coords}, ${coords + 1}, ${
+            coords + 2
+          }---`
+        );
+        break;
+
+      case ship.size == 2:
+        board[coords] = ship;
+        board[coords + 1] = ship;
+        console.log(
+          `---${ship.name} has been placed at ${coords}, ${coords + 1}---`
+        );
+        break;
+    }
   }
 
   // could refactor this to search for sunk == true in fleet
@@ -40,21 +83,33 @@ const Gameboard = () => {
       case board[coords] == fleet.carrier:
         fleet.carrier.hit();
         fleet.carrier.isSunk();
+        console.log(
+          `Shot fired at ${coords}: Carrier took a hit! Total hits are now ${fleet.carrier.hits}`
+        );
         break;
 
       case board[coords] == fleet.battleship:
         fleet.battleship.hit();
         fleet.battleship.isSunk();
+        console.log(
+          `Shot fired at ${coords}: Battleship took a hit! Total hits are now ${fleet.battleship.hits}`
+        );
         break;
-      
+
       case board[coords] == fleet.cruiser:
         fleet.cruiser.hit();
         fleet.cruiser.isSunk();
+        console.log(
+          `Shot fired at ${coords}: Cruiser took a hit! Total hits are now ${fleet.cruiser.hits}`
+        );
         break;
-      
+
       case board[coords] == fleet.destroyer:
         fleet.destroyer.hit();
         fleet.destroyer.isSunk();
+        console.log(
+          `Shot fired at ${coords}: Destroyer took a hit! Total hits are now ${fleet.destroyer.hits}`
+        );
         break;
 
       default:
@@ -62,7 +117,7 @@ const Gameboard = () => {
         missedAttacksList.push(coords);
         console.log(`Missed co-ordinates list: ${missedAttacksList}`);
     }
-    
+
     gameOver();
   }
 
