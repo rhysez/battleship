@@ -11,6 +11,7 @@ const Player = () => {
     }
 
     // takes enemy parameter (player or computer variable) - working
+    // can take returnRandomCoord() in coord parameter 
     function attack(enemy, coord){
         enemy.gameboard.recieveAttack(coord)
     }

@@ -25,6 +25,7 @@ const Gameboard = () => {
     console.log(`---${ship.name} has been placed at ${coords}---`);
   }
 
+  // could refactor this to search for sunk == true in fleet
   function gameOver() {
     fleet.carrier.hits == 5 &&
     fleet.battleship.hits == 4 &&

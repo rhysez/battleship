@@ -8,7 +8,7 @@ const Ship = (name, size) => {
   }
   function isSunk() {
     this.hits === size
-      ? (this.sunk = true)
+      ? (this.sunk = true, console.log(`${name} has sunk!`))
       : (this.sunk = false);
   }
   return { name, size, hits, sunk, hit, isSunk, placement };
