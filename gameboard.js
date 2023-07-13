@@ -68,12 +68,12 @@ const Gameboard = () => {
     }
   }
 
-  // could refactor this to search for sunk == true in fleet
+  // could refactor this to search for sunk == true in fleet object
   function gameOver() {
-    fleet.carrier.hits == 5 &&
-    fleet.battleship.hits == 4 &&
-    fleet.cruiser.hits == 3 &&
-    fleet.destroyer.hits == 2
+    fleet.carrier.sunk == true &&
+    fleet.battleship.sunk == true &&
+    fleet.cruiser.sunk == true &&
+    fleet.destroyer.sunk == true
       ? console.log("-----GAME OVER!-----")
       : null;
   }
