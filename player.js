@@ -29,7 +29,8 @@ player.gameboard.placeShip(player.gameboard.fleet.destroyer, 10)
 player.attack(computer, 15)
 computer.attack(player, computer.returnRandomCoord())
 player.attack(computer, 15)
-computer.attack(player, computer.returnRandomCoord())
+console.log(computer.gameboard.board)
+
 
 
 

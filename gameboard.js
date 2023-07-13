@@ -11,7 +11,6 @@ const Gameboard = () => {
     destroyer: Ship("Destroyer", 2),
   };
 
-  // generates co-ordinates for the board
   function createBoard() {
     for (let i = 0; i < 10; i++) {
       for (let j = 0; j < 10; j++) {
@@ -20,7 +19,6 @@ const Gameboard = () => {
     }
   }
 
-  // places ship at chosen co-ordinates
   function placeShip(ship, coords) {
     ship.placement = coords;
     board[coords] = ship;
@@ -78,29 +76,5 @@ const Gameboard = () => {
     recieveAttack,
   };
 };
-
-/* let newGameboard = Gameboard(); */
-/* newGameboard.createBoard();
-newGameboard.placeShip(newGameboard.fleet.battleship, 98);
-newGameboard.recieveAttack(98);
-newGameboard.recieveAttack(98);
-newGameboard.recieveAttack(98);
-newGameboard.recieveAttack(98);
-
-newGameboard.placeShip(newGameboard.fleet.cruiser, 24);
-newGameboard.recieveAttack(24);
-newGameboard.recieveAttack(24);
-newGameboard.recieveAttack(24);
-
-newGameboard.placeShip(newGameboard.fleet.destroyer, 52);
-newGameboard.recieveAttack(52);
-newGameboard.recieveAttack(52);
-
-newGameboard.placeShip(newGameboard.fleet.carrier, 5);
-newGameboard.recieveAttack(5);
-newGameboard.recieveAttack(5);
-newGameboard.recieveAttack(5);
-newGameboard.recieveAttack(5);
-newGameboard.recieveAttack(5); */
 
 export { Gameboard };
