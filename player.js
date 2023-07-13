@@ -1,20 +1,36 @@
-import { Ship } from './ship.js'
 import { Gameboard } from './gameboard.js'
 
-const Player = (enemy) => {
+const Player = () => {
     const gameboard = Gameboard()
-    function attack(coord){
-        enemy.gameboard.board[coord] = 'KIA'
-        console.log(`Attacking cell ${coord}`)
+    let isTurn = true
+
+    // returns a random number between 1 and 99 - working
+    function returnRandomCoord(){
+        let randomIndex = Math.floor(Math.random() * gameboard.board.length)
+        return randomIndex
     }
-    return { gameboard, attack }
+
+    // takes enemy parameter (player or computer variable) - working
+    function attack(enemy, coord){
+        enemy.gameboard.recieveAttack(coord)
+    }
+      
+    return { gameboard, isTurn, returnRandomCoord, attack }
 }
 
-const computer = Player() // computer targets player // adding 'player' argument returns error
-const player = Player(computer) // player targets computer
+const computer = Player()
+const player = Player() 
+
+player.gameboard.createBoard()
+computer.gameboard.createBoard()
+computer.gameboard.placeShip(computer.gameboard.fleet.destroyer, 15)
+player.gameboard.placeShip(player.gameboard.fleet.destroyer, 10)
+
+player.attack(computer, 15)
+computer.attack(player, computer.returnRandomCoord())
+player.attack(computer, 15)
+computer.attack(player, computer.returnRandomCoord())
 
 
-console.log(computer.gameboard.createBoard())
-console.log(computer.gameboard.board)
-console.log(player.attack(10))
-console.log(computer.gameboard.board)
+
+

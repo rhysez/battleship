@@ -59,7 +59,7 @@ const Gameboard = () => {
         break;
 
       default:
-        console.log("Shot fired: Missed attack!");
+        console.log(`Shot fired at ${coords}: Missed attack!`);
         missedAttacksList.push(coords);
         console.log(`Missed co-ordinates list: ${missedAttacksList}`);
     }
