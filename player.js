@@ -19,7 +19,9 @@ const Player = () => {
     return { gameboard, isTurn, returnRandomCoord, attack }
 }
 
-const computer = Player()
+export { Player }
+
+/* const computer = Player()
 const player = Player() 
 
 player.gameboard.createBoard()
@@ -33,7 +35,7 @@ player.attack(computer, 16)
 player.attack(computer, 16)
 player.attack(computer, 16)
 player.attack(computer, 16)
-console.log(computer.gameboard.board)
+console.log(computer.gameboard.board) */
 
 
 
