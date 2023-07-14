@@ -21,22 +21,6 @@ const Player = () => {
 
 export { Player }
 
-/* const computer = Player()
-const player = Player() 
-
-player.gameboard.createBoard()
-computer.gameboard.createBoard()
-computer.gameboard.placeShip(computer.gameboard.fleet.carrier, 15)
-player.gameboard.placeShip(player.gameboard.fleet.carrier, 10)
-
-player.attack(computer, 15)
-computer.attack(player, computer.returnRandomCoord())
-player.attack(computer, 16)
-player.attack(computer, 16)
-player.attack(computer, 16)
-player.attack(computer, 16)
-console.log(computer.gameboard.board) */
-
 
 
 
