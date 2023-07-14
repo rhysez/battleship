@@ -46,11 +46,12 @@ const Game = () => {
 const newGame = Game();
 
 // game flow example
-newGame.setUpPlayersAndBoards();
+
+/* newGame.setUpPlayersAndBoards();
 newGame.placePlayerShips()
 setTimeout(() => {
     newGame.placeComputerShips()
 }, 2000)
 setTimeout(() => {
     newGame.makeAttack(10)
-}, 4000)
+}, 4000) */
