@@ -33,7 +33,6 @@ h1 {
 
 #mainContainer {
     display: flex;
-    border: solid 2px black;
     width: 50%;
     margin: auto;
     margin-top: 3rem;
@@ -62,11 +61,13 @@ h1 {
 .cell {
     border: solid 2px black;
     box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 4rem;
     height: 4rem;
 }
 
 .cell:hover {
     border: solid 2px red;
-
 }

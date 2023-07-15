@@ -52,18 +52,22 @@ const elements = () => {
   const computerGameboard = document.getElementById("computerGameboard");
 
   const renderPlayerGameboard = () => {
-    for (let i = 0; i < 100; i++){
+    for (let i = 0; i < newGame.player.gameboard.board.length; i++){
       let newCell = document.createElement('div')
       element.playerGameboard.appendChild(newCell)
+      newCell.textContent = newGame.computer.gameboard.board[i]
       newCell.classList.add('cell')
+      newCell.id = newGame.computer.gameboard.board[i]
     }
   };
 
   const renderComputerGameboard = () => {
-    for (let i = 0; i < 100; i++){
+    for (let i = 0; i < newGame.computer.gameboard.board.length; i++){
       let newCell = document.createElement('div')
       element.computerGameboard.appendChild(newCell)
+      newCell.textContent = newGame.computer.gameboard.board[i]
       newCell.classList.add('cell')
+      newCell.id = newGame.computer.gameboard.board[i]
     }
   };
 
