@@ -1,5 +1,7 @@
 import { Player } from "./player.js";
 
+// run with npx-live-server from root dir
+
 const Game = () => {
   const player = Player();
   const computer = Player();
@@ -45,13 +47,42 @@ const Game = () => {
 
 const newGame = Game();
 
-// game flow example
+const elements = () => {
+  const playerGameboard = document.getElementById("playerGameboard");
+  const computerGameboard = document.getElementById("computerGameboard");
 
-/* newGame.setUpPlayersAndBoards();
-newGame.placePlayerShips()
-setTimeout(() => {
-    newGame.placeComputerShips()
-}, 2000)
-setTimeout(() => {
-    newGame.makeAttack(10)
-}, 4000) */
+  const renderPlayerGameboard = () => {
+    for (let i = 0; i < 100; i++){
+      let newCell = document.createElement('div')
+      element.playerGameboard.appendChild(newCell)
+      newCell.classList.add('cell')
+    }
+  };
+
+  const renderComputerGameboard = () => {
+    for (let i = 0; i < 100; i++){
+      let newCell = document.createElement('div')
+      element.computerGameboard.appendChild(newCell)
+      newCell.classList.add('cell')
+    }
+  };
+
+  return {
+    playerGameboard,
+    computerGameboard,
+    renderPlayerGameboard,
+    renderComputerGameboard,
+  };
+};
+
+const element = elements();
+
+export { newGame, Game, element, elements }
+
+newGame.player.gameboard.createBoard()
+newGame.computer.gameboard.createBoard()
+
+element.renderPlayerGameboard()
+element.renderComputerGameboard()
+
+

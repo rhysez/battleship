@@ -13,5 +13,8 @@
       "^.+\\.jsx?$": "babel-jest"
     }
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "live-server": "^1.2.2"
+  }
 }

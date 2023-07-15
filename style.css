@@ -13,7 +13,7 @@ body {
 }
 
 h1 {
-    font-size: 4rem;
+    font-size: clamp(2rem, 3rem, 4rem);
     text-align: center;
     padding: 0;
     margin: 0;
@@ -34,11 +34,39 @@ h1 {
 #mainContainer {
     display: flex;
     border: solid 2px black;
-    width: 90%;
+    width: 50%;
     margin: auto;
     margin-top: 3rem;
 }
 
-#gameBoards {
+#gameboards {
     display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+#split {
+    height: 100%;
+    border: solid 1px black;
+}
+
+.gameboard {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: auto;
+    gap: 0.25rem;
+    margin: 2rem;
+    cursor: crosshair;
+}
+
+.cell {
+    border: solid 2px black;
+    box-sizing: border-box;
+    width: 4rem;
+    height: 4rem;
+}
+
+.cell:hover {
+    border: solid 2px red;
+
 }
