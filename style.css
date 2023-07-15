@@ -62,6 +62,7 @@ h1 {
     grid-template-rows: auto;
     margin: 2rem;
     cursor: crosshair;
+    box-shadow: 10px 10px 5px rgb(37, 37, 37);
 }
 
 .cell {
