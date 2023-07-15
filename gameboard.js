@@ -29,12 +29,6 @@ const Gameboard = () => {
         board[coords + 2] = ship;
         board[coords + 3] = ship;
         board[coords + 4] = ship;
-
-        console.log(
-          `---${ship.name} has been placed at ${coords}, ${coords + 1}, ${
-            coords + 2
-          }, ${coords + 3}, ${coords + 4}---`
-        );
         break;
 
       case ship.size == 4:
@@ -42,33 +36,17 @@ const Gameboard = () => {
         board[coords + 1] = ship;
         board[coords + 2] = ship;
         board[coords + 3] = ship;
-      
-        console.log(
-          `---${ship.name} has been placed at ${coords}, ${coords + 1}, ${
-            coords + 2
-          }, ${coords + 3}---`
-        );
         break;
 
       case ship.size == 3:
         board[coords] = ship;
         board[coords + 1] = ship;
         board[coords + 2] = ship;
-
-        console.log(
-          `---${ship.name} has been placed at ${coords}, ${coords + 1}, ${
-            coords + 2
-          }---`
-        );
         break;
 
       case ship.size == 2:
         board[coords] = ship;
         board[coords + 1] = ship;
-
-        console.log(
-          `---${ship.name} has been placed at ${coords}, ${coords + 1}---`
-        );
         break;
     }
   }
