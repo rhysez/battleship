@@ -13,20 +13,34 @@ const Game = () => {
   };
 
   // uses pre-set co-ordinates for now
-  const placePlayerCarrier = (coord) => {
-    player.gameboard.placeShip(player.gameboard.fleet.carrier, coord);
+  const placePlayerCarrier = (coords) => {
+    player.gameboard.placeShip(player.gameboard.fleet.carrier, coords);
+    element.fillCellColor(coords)
+    element.fillCellColor(coords + 1)
+    element.fillCellColor(coords + 2)
+    element.fillCellColor(coords + 3)
+    element.fillCellColor(coords + 4)
   };
 
-  const placePlayerBattleship = (coord) => {
-    player.gameboard.placeShip(player.gameboard.fleet.battleship, coord);
+  const placePlayerBattleship = (coords) => {
+    player.gameboard.placeShip(player.gameboard.fleet.battleship, coords);
+    element.fillCellColor(coords)
+    element.fillCellColor(coords + 1)
+    element.fillCellColor(coords + 2)
+    element.fillCellColor(coords + 3)
   };
 
-  const placePlayerCruiser = (coord) => {
-    player.gameboard.placeShip(player.gameboard.fleet.cruiser, coord);
+  const placePlayerCruiser = (coords) => {
+    player.gameboard.placeShip(player.gameboard.fleet.cruiser, coords);
+    element.fillCellColor(coords)
+    element.fillCellColor(coords + 1)
+    element.fillCellColor(coords + 2)
   };
 
-  const placePlayerDestroyer = (coord) => {
-    player.gameboard.placeShip(player.gameboard.fleet.destroyer, coord);
+  const placePlayerDestroyer = (coords) => {
+    player.gameboard.placeShip(player.gameboard.fleet.destroyer, coords);
+    element.fillCellColor(coords)
+    element.fillCellColor(coords + 1)
   };
 
   const placeComputerShips = () => {
@@ -66,14 +80,14 @@ const elements = () => {
 
   const fillCellColor = (id) => {
     let getCell = document.getElementById(id)
-    getCell.style.backgroundColor = "red"
+    getCell.style.backgroundColor = "red" 
   }
 
   const renderPlayerGameboard = () => {
     for (let i = 0; i < newGame.player.gameboard.board.length; i++){
       let newCell = document.createElement('div')
       element.playerGameboard.appendChild(newCell)
-      newCell.textContent = newGame.computer.gameboard.board[i]
+      newCell.textContent = newGame.player.gameboard.board[i]
       newCell.classList.add('cell')
       newCell.id = i
     }
@@ -85,7 +99,7 @@ const elements = () => {
       element.computerGameboard.appendChild(newCell)
       newCell.textContent = newGame.computer.gameboard.board[i]
       newCell.classList.add('cell')
-      newCell.id = i
+      newCell.id = `${i} computer`
     }
   };
 
