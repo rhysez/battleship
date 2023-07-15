@@ -8,8 +8,8 @@ const Player = () => {
     // returns a random number between 1 and 99 - working
     function returnRandomCoord(){
         let randomIndex = Math.floor(Math.random() * gameboard.board.length)
-        if (element.playerCells[randomIndex].style.backgroundColor === "red"){
-            element.playerCells[randomIndex].style.backgroundColor = "orange"
+        if (element.playerCells[randomIndex].style.backgroundColor === "lightgreen"){
+            element.playerCells[randomIndex].style.backgroundColor = "crimson"
         } else { 
             element.playerCells[randomIndex].style.backgroundColor = "aqua"
         }

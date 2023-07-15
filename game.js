@@ -80,12 +80,28 @@ const Game = () => {
 
   const makeAttack = (coord) => {
     player.attack(computer, coord);
-    // doesn't work - FIX
-    if (typeof newGame.computer.gameboard.board[coord] === 'object'){
-      element.computerCells[coord].style.backgroundColor = "orange"
-    } else {
-      element.computerCells[coord].style.backgroundColor = "aqua"
+ 
+    switch (true){
+      case newGame.computer.gameboard.board[coord] === newGame.computer.gameboard.fleet.carrier:
+        element.computerCells[coord].style.backgroundColor = "crimson"
+        break;
+      
+      case newGame.computer.gameboard.board[coord] === newGame.computer.gameboard.fleet.battleship:
+        element.computerCells[coord].style.backgroundColor = "crimson"
+        break;
+
+      case newGame.computer.gameboard.board[coord] === newGame.computer.gameboard.fleet.cruiser:
+        element.computerCells[coord].style.backgroundColor = "crimson"
+        break
+
+      case newGame.computer.gameboard.board[coord] === newGame.computer.gameboard.fleet.destroyer:
+        element.computerCells[coord].style.backgroundColor = "crimson"
+        break
+
+      default:
+        element.computerCells[coord].style.backgroundColor = "aqua"
     }
+
     setTimeout(() => {
       computer.attack(player, computer.returnRandomCoord());
     }, 2000);
@@ -124,7 +140,7 @@ const elements = () => {
 
   const fillCellColor = (id) => {
     let getCell = document.getElementById(id);
-    getCell.style.backgroundColor = "red";
+    getCell.style.backgroundColor = "lightgreen";
   };
 
   const renderPlayerGameboard = () => {

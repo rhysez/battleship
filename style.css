@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Geologica:wght@600&family=Nixie+One&family=Nunito:wght@300&family=Rubik+Dirt&display=swap');
 
+@keyframes fadeIn {
+    0% { opacity: 0 }
+    100% { opacity: 100 }
+}
+
 html {
     font-size: 62.5%;
     font-family: Nunito, 'Nixie One', Geologica;
@@ -7,17 +12,20 @@ html {
 
 body {
     min-height: 100vh;
-    background-color: snow(0, 140, 221);
+    background-color: #363636;
     margin: 0;
     padding: 0;
+    transition: all .5s ease-in-out;
 }
 
 h1 {
     font-size: clamp(4rem, 5rem, 6rem);
+    font-weight:lighter;
     text-align: center;
     padding: 0;
     margin: 0;
-    color: black;
+    color: white;
+    animation: fadeIn 0.5s;
 }
 
 #headerBox {
@@ -34,6 +42,7 @@ h1 {
     margin: auto;
     margin-top: 3rem;
     justify-content: center;
+    animation: fadeIn 0.5s;
 }
 
 #gameboards {
@@ -51,14 +60,12 @@ h1 {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     grid-template-rows: auto;
-    gap: 0.25rem;
     margin: 2rem;
     cursor: crosshair;
 }
 
 .cell {
-    border: solid 1px black;
-    border-radius: 2.5px;
+    border: solid 1px rgb(27, 27, 27);
     font-weight: bold;
     box-sizing: border-box;
     display: flex;
@@ -66,7 +73,7 @@ h1 {
     align-items: center;
     width: 4.5rem;
     height: 4.5rem;
-    background-color: rgb(231, 231, 231)
+    background-color: #2c2c2c;
 }
 
 .cell:hover {
@@ -78,9 +85,14 @@ h1 {
     display: flex;
     justify-content: center;
     margin-top: 1rem;
+    animation: fadeIn 0.5s;
+    transition: all .25s ease-in-out;
 }
 
 #results {
     text-align: center;
     font-size: 2rem;
+    animation: fadeIn 0.5s;
+    transition: all .25s ease-in-out;
+    color: white;
 }
