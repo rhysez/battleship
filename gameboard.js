@@ -1,4 +1,5 @@
 import { Ship } from "./ship.js";
+import { element, elements} from './game.js'
 
 const Gameboard = () => {
   let board = [];
@@ -28,6 +29,13 @@ const Gameboard = () => {
         board[coords + 2] = ship;
         board[coords + 3] = ship;
         board[coords + 4] = ship;
+
+        element.fillCellColor(coords)
+        element.fillCellColor(coords + 1)
+        element.fillCellColor(coords + 2)
+        element.fillCellColor(coords + 3)
+        element.fillCellColor(coords + 4)
+
         console.log(
           `---${ship.name} has been placed at ${coords}, ${coords + 1}, ${
             coords + 2
@@ -40,6 +48,12 @@ const Gameboard = () => {
         board[coords + 1] = ship;
         board[coords + 2] = ship;
         board[coords + 3] = ship;
+
+        element.fillCellColor(coords)
+        element.fillCellColor(coords + 1)
+        element.fillCellColor(coords + 2)
+        element.fillCellColor(coords + 3)
+      
         console.log(
           `---${ship.name} has been placed at ${coords}, ${coords + 1}, ${
             coords + 2
@@ -51,6 +65,11 @@ const Gameboard = () => {
         board[coords] = ship;
         board[coords + 1] = ship;
         board[coords + 2] = ship;
+
+        element.fillCellColor(coords)
+        element.fillCellColor(coords + 1)
+        element.fillCellColor(coords + 2)
+
         console.log(
           `---${ship.name} has been placed at ${coords}, ${coords + 1}, ${
             coords + 2
@@ -61,6 +80,10 @@ const Gameboard = () => {
       case ship.size == 2:
         board[coords] = ship;
         board[coords + 1] = ship;
+
+        element.fillCellColor(coords)
+        element.fillCellColor(coords + 1)
+
         console.log(
           `---${ship.name} has been placed at ${coords}, ${coords + 1}---`
         );

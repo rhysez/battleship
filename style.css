@@ -46,7 +46,7 @@ h1 {
 
 #split {
     height: 100%;
-    border: solid 1px black;
+    border: dashed 1px black;
 }
 
 .gameboard {
@@ -60,14 +60,16 @@ h1 {
 
 .cell {
     border: solid 2px black;
+    border-radius: 2.5px;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 4rem;
-    height: 4rem;
+    width: 4.5rem;
+    height: 4.5rem;
 }
 
 .cell:hover {
     border: solid 2px red;
+    background-color: rgb(255, 142, 142);
 }

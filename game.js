@@ -13,11 +13,20 @@ const Game = () => {
   };
 
   // uses pre-set co-ordinates for now
-  const placePlayerShips = () => {
-    player.gameboard.placeShip(player.gameboard.fleet.carrier, 5);
-    player.gameboard.placeShip(player.gameboard.fleet.battleship, 20);
-    player.gameboard.placeShip(player.gameboard.fleet.cruiser, 30);
-    player.gameboard.placeShip(player.gameboard.fleet.destroyer, 60);
+  const placePlayerCarrier = (coord) => {
+    player.gameboard.placeShip(player.gameboard.fleet.carrier, coord);
+  };
+
+  const placePlayerBattleship = (coord) => {
+    player.gameboard.placeShip(player.gameboard.fleet.battleship, coord);
+  };
+
+  const placePlayerCruiser = (coord) => {
+    player.gameboard.placeShip(player.gameboard.fleet.cruiser, coord);
+  };
+
+  const placePlayerDestroyer = (coord) => {
+    player.gameboard.placeShip(player.gameboard.fleet.destroyer, coord);
   };
 
   const placeComputerShips = () => {
@@ -39,7 +48,10 @@ const Game = () => {
     computer,
     isGameOver,
     setUpPlayersAndBoards,
-    placePlayerShips,
+    placePlayerCarrier,
+    placePlayerBattleship,
+    placePlayerCruiser,
+    placePlayerDestroyer,
     placeComputerShips,
     makeAttack,
   };
@@ -50,6 +62,12 @@ const newGame = Game();
 const elements = () => {
   const playerGameboard = document.getElementById("playerGameboard");
   const computerGameboard = document.getElementById("computerGameboard");
+  const cell = document.getElementsByClassName('cell');
+
+  const fillCellColor = (id) => {
+    let getCell = document.getElementById(id)
+    getCell.style.backgroundColor = "red"
+  }
 
   const renderPlayerGameboard = () => {
     for (let i = 0; i < newGame.player.gameboard.board.length; i++){
@@ -57,7 +75,7 @@ const elements = () => {
       element.playerGameboard.appendChild(newCell)
       newCell.textContent = newGame.computer.gameboard.board[i]
       newCell.classList.add('cell')
-      newCell.id = newGame.computer.gameboard.board[i]
+      newCell.id = i
     }
   };
 
@@ -67,13 +85,15 @@ const elements = () => {
       element.computerGameboard.appendChild(newCell)
       newCell.textContent = newGame.computer.gameboard.board[i]
       newCell.classList.add('cell')
-      newCell.id = newGame.computer.gameboard.board[i]
+      newCell.id = i
     }
   };
 
   return {
     playerGameboard,
     computerGameboard,
+    cell,
+    fillCellColor,
     renderPlayerGameboard,
     renderComputerGameboard,
   };
@@ -83,10 +103,19 @@ const element = elements();
 
 export { newGame, Game, element, elements }
 
+// game flow testing
+// stage 1 - create boards
 newGame.player.gameboard.createBoard()
 newGame.computer.gameboard.createBoard()
-
+// stage 2 - render boards
 element.renderPlayerGameboard()
 element.renderComputerGameboard()
+// stage 3 - place ships
+newGame.placePlayerCarrier(5)
+newGame.placePlayerBattleship(12)
+newGame.placePlayerCruiser(50)
+newGame.placePlayerDestroyer(75)
+newGame.placeComputerShips()
+
 
 
