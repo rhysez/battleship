@@ -80,6 +80,12 @@ const Game = () => {
 
   const makeAttack = (coord) => {
     player.attack(computer, coord);
+    // doesn't work - FIX
+    if (typeof newGame.computer.gameboard.board[coord] === 'object'){
+      element.computerCells[coord].style.backgroundColor = "orange"
+    } else {
+      element.computerCells[coord].style.backgroundColor = "aqua"
+    }
     setTimeout(() => {
       computer.attack(player, computer.returnRandomCoord());
     }, 2000);
@@ -105,9 +111,16 @@ const elements = () => {
   const playerGameboard = document.getElementById("playerGameboard");
   const computerGameboard = document.getElementById("computerGameboard");
   const cell = document.getElementsByClassName("cell");
+  const results = document.getElementById('results');
 
   let playerCells = []
   let computerCells = []
+
+  const appendResult = (outcome) => {
+    let result = document.createElement('div')
+    result.textContent = outcome
+    results.appendChild(result)
+  }
 
   const fillCellColor = (id) => {
     let getCell = document.getElementById(id);
@@ -140,8 +153,10 @@ const elements = () => {
     playerGameboard,
     computerGameboard,
     cell,
+    results,
     playerCells,
     computerCells,
+    appendResult,
     fillCellColor,
     renderPlayerGameboard,
     renderComputerGameboard,
@@ -160,16 +175,16 @@ newGame.computer.gameboard.createBoard();
 element.renderPlayerGameboard();
 element.renderComputerGameboard();
 // stage 3 - place ships
-let placeCarrier = prompt('Place your carrier:')
+let placeCarrier = prompt('Place your carrier between 1 - 99 (takes 5 spaces):')
 newGame.placePlayerCarrier(parseInt(placeCarrier));
 
-let placeBattleship = prompt('Place your battleship:')
+let placeBattleship = prompt('Place your battleship between 1 - 99 (takes 4 spaces):')
 newGame.placePlayerBattleship(parseInt(placeBattleship));
 
-let placeCruiser = prompt('Place your cruiser:')
+let placeCruiser = prompt('Place your cruiser between 1 - 99 (takes 3 spaces):')
 newGame.placePlayerCruiser(parseInt(placeCruiser));
 
-let placeDestroyer = prompt('Place your destroyer')
+let placeDestroyer = prompt('Place your destroyer between 1 - 99 (takes 2 spaces):')
 newGame.placePlayerDestroyer(parseInt(placeDestroyer));
 
 newGame.placeComputerShips();

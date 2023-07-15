@@ -1,5 +1,5 @@
 import { Ship } from "./ship.js";
-import { element, elements} from './game.js'
+import { element } from "./game.js";
 
 const Gameboard = () => {
   let board = [];
@@ -57,7 +57,7 @@ const Gameboard = () => {
     fleet.battleship.sunk == true &&
     fleet.cruiser.sunk == true &&
     fleet.destroyer.sunk == true
-      ? console.log("-----GAME OVER!-----")
+      ? element.results.textContent = `-----GAME OVER!-----`
       : null;
   }
 
@@ -66,49 +66,45 @@ const Gameboard = () => {
       case board[coords] == fleet.carrier:
         fleet.carrier.hit();
         fleet.carrier.isSunk();
-        console.log(
-          `Shot fired at ${coords}: Carrier took a hit! Total hits are now ${fleet.carrier.hits}`
-        );
-        if (fleet.carrier.sunk === true){
-          console.log(`Carrier has sunk!`)
+        element.appendResult(`Shot fired at ${coords}: Carrier took a hit! Total hits are now ${fleet.carrier.hits}`)
+
+        if (fleet.carrier.sunk === true) {
+          element.results.textContent = `Carrier has sunk!`;
         }
         break;
 
       case board[coords] == fleet.battleship:
         fleet.battleship.hit();
         fleet.battleship.isSunk();
-        console.log(
-          `Shot fired at ${coords}: Battleship took a hit! Total hits are now ${fleet.battleship.hits}`
-        );
-        if (fleet.battleship.sunk === true){
-          console.log(`Battleship has sunk!`)
+        element.appendResult(`Shot fired at ${coords}: Battleship took a hit! Total hits are now ${fleet.battleship.hits}`)
+
+        if (fleet.battleship.sunk === true) {
+          element.results.textContent = `Battleship has sunk!`;
         }
         break;
 
       case board[coords] == fleet.cruiser:
         fleet.cruiser.hit();
         fleet.cruiser.isSunk();
-        console.log(
-          `Shot fired at ${coords}: Cruiser took a hit! Total hits are now ${fleet.cruiser.hits}`
-        );
-        if (fleet.cruiser.sunk === true){
-          console.log(`Cruiser has sunk!`)
+        element.appendResult(`Shot fired at ${coords}: Cruiser took a hit! Total hits are now ${fleet.cruiser.hits}`)
+
+        if (fleet.cruiser.sunk === true) {
+          element.results.textContent = `Cruiser has sunk!`;
         }
         break;
 
       case board[coords] == fleet.destroyer:
         fleet.destroyer.hit();
         fleet.destroyer.isSunk();
-        console.log(
-          `Shot fired at ${coords}: Destroyer took a hit! Total hits are now ${fleet.destroyer.hits}`
-        );
-        if (fleet.destroyer.sunk === true){
-          console.log(`Destroyer has sunk!`)
+        element.appendResult(`Shot fired at ${coords}: Destroyer took a hit! Total hits are now ${fleet.destroyer.hits}`)
+
+        if (fleet.destroyer.sunk === true) {
+          element.results.textContent = `Destroyer has sunk!`;
         }
         break;
 
       default:
-        console.log(`Shot fired at ${coords}: Missed attack!`);
+        element.appendResult(`Shot fired at ${coords}: Missed attack!`)
         missedAttacksList.push(coords);
         console.log(`Missed co-ordinates list: ${missedAttacksList}`);
     }
