@@ -1,11 +1,13 @@
 import { Player } from "./player.js";
-
-// run with npx-live-server from root dir
+import Toastify from 'toastify-js';
+// import "toastify-js/src/toastify.css"
 
 const Game = () => {
   const player = Player();
   const computer = Player();
+
   let isGameOver = false;
+  let waitingForAttack = false;
 
   const setUpPlayersAndBoards = () => {
     player.gameboard.createBoard();
@@ -28,7 +30,18 @@ const Game = () => {
   };
 
   const makeAttack = (coord) => {
+    // TODO: Popup toast to notify player they must wait to attack
+    if (waitingForAttack) return "You must wait to attack";
+
     player.attack(computer, coord);
+    Toastify({
+      text: "This is a toast",
+      className: "info",
+      style: {
+        background: "linear-gradient(to right, #00b09b, #96c93d)",
+      }
+    }).showToast();
+    waitingForAttack = true;
  
     switch (true){
       case newGame.computer.gameboard.board[coord] === newGame.computer.gameboard.fleet.carrier:
@@ -53,6 +66,7 @@ const Game = () => {
 
     setTimeout(() => {
       computer.attack(player, computer.returnRandomCoord());
+      waitingForAttack = false;
     }, 2000);
   };
 

@@ -20,14 +20,13 @@ const Gameboard = () => {
     }
   }
 
-  function placeShip(ship, element, coords) {
+  function placeShip(ship, coords) {
     ship.placement = coords;
     for (let i = 0; i < ship.size; i++) {
       board[coords + i] = ship;
     }
   }
 
-  // could refactor this to search for sunk == true in fleet object
   function gameOver() {
     fleet.carrier.sunk == true &&
     fleet.battleship.sunk == true &&
