@@ -28,13 +28,14 @@ const Gameboard = () => {
     }
   }
 
+  // TODO: Make this do something...
   function gameOver() {
-    // do something
+   console.log("game over!")
   }
 
   function recieveAttack(coords) {
-    switch (true) {
-      case board[coords] == fleet.carrier:
+    switch (board[coords]) {
+      case fleet.carrier:
         fleet.carrier.hit();
         fleet.carrier.isSunk();
 
@@ -43,13 +44,13 @@ const Gameboard = () => {
             text: "Carrier has sunk!",
             className: "info",
             style: {
-              background: "linear-gradient(to right, #00b09b, #96c93d)",
+              background: "#9238d6",
             }
           }).showToast();
         }
         break;
 
-      case board[coords] == fleet.battleship:
+      case fleet.battleship:
         fleet.battleship.hit();
         fleet.battleship.isSunk();
 
@@ -58,13 +59,13 @@ const Gameboard = () => {
             text: "Battleship has sunk!",
             className: "info",
             style: {
-              background: "linear-gradient(to right, #00b09b, #96c93d)",
+              background: "#9238d6",
             }
           }).showToast();
         }
         break;
 
-      case board[coords] == fleet.cruiser:
+      case fleet.cruiser:
         fleet.cruiser.hit();
         fleet.cruiser.isSunk();
 
@@ -73,13 +74,13 @@ const Gameboard = () => {
             text: "Cruiser has sunk!",
             className: "info",
             style: {
-              background: "linear-gradient(to right, #00b09b, #96c93d)",
+              background: "#9238d6",
             }
           }).showToast();
         }
         break;
 
-      case board[coords] == fleet.destroyer:
+      case fleet.destroyer:
         fleet.destroyer.hit();
         fleet.destroyer.isSunk();
 
@@ -88,7 +89,7 @@ const Gameboard = () => {
             text: "Destroyer has sunk!",
             className: "info",
             style: {
-              background: "linear-gradient(to right, #00b09b, #96c93d)",
+              background: "#9238d6",
             }
           }).showToast();
         }

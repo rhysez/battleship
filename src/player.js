@@ -1,5 +1,6 @@
 import { Gameboard } from './gameboard.js'
 import { element } from './game.js'
+import Toastify from "toastify-js";
 
 const Player = () => {
     const gameboard = Gameboard()

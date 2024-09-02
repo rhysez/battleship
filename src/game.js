@@ -34,8 +34,8 @@ const Game = () => {
         text: "You must wait to attack",
         className: "info",
         style: {
-          background: "#f05959",
-          fontSize: 12
+          background: "#d67c38",
+          fontWeight: "bold",
         }
       }).showToast();
     } else {
@@ -45,25 +45,26 @@ const Game = () => {
         className: "info",
         style: {
           background: "#65e665",
+          fontWeight: "bold",
         }
       }).showToast();
       waitingForAttack = true;
     }
  
-    switch (true){
-      case newGame.computer.gameboard.board[coord] === newGame.computer.gameboard.fleet.carrier:
+    switch (newGame.computer.gameboard.board[coord]){
+      case newGame.computer.gameboard.fleet.carrier:
         element.computerCells[coord].style.backgroundColor = "crimson"
         break;
       
-      case newGame.computer.gameboard.board[coord] === newGame.computer.gameboard.fleet.battleship:
+      case newGame.computer.gameboard.fleet.battleship:
         element.computerCells[coord].style.backgroundColor = "crimson"
         break;
 
-      case newGame.computer.gameboard.board[coord] === newGame.computer.gameboard.fleet.cruiser:
+      case newGame.computer.gameboard.fleet.cruiser:
         element.computerCells[coord].style.backgroundColor = "crimson"
         break
 
-      case newGame.computer.gameboard.board[coord] === newGame.computer.gameboard.fleet.destroyer:
+      case newGame.computer.gameboard.fleet.destroyer:
         element.computerCells[coord].style.backgroundColor = "crimson"
         break
 
@@ -73,6 +74,14 @@ const Game = () => {
 
     setTimeout(() => {
       computer.attack(player, computer.returnRandomCoord());
+      Toastify({
+        text: "Enemy attacked a random cell",
+        className: "info",
+        style: {
+          background: "#d6383a",
+          fontWeight: "bold",
+        }
+      }).showToast();
       waitingForAttack = false;
     }, 2000);
   };
@@ -145,21 +154,25 @@ export { newGame, Game, element, elements };
 // stage 1 - create boards
 newGame.player.gameboard.createBoard();
 newGame.computer.gameboard.createBoard();
+
 // stage 2 - render boards
 element.renderPlayerGameboard();
 element.renderComputerGameboard();
+
 // stage 3 - place ships
-let carrierCoords = prompt('Place your carrier between 1 - 99 (takes 5 spaces):')
-newGame.placePlayerShip(parseInt(carrierCoords), newGame.player.gameboard.fleet.carrier);
+// pass in parseInt(shipCoords)
 
-let battleshipCoords = prompt('Place your battleship between 1 - 99 (takes 4 spaces):')
-newGame.placePlayerShip(parseInt(battleshipCoords), newGame.player.gameboard.fleet.battleship)
+// let carrierCoords = prompt('Place your carrier between 1 - 99 (takes 5 spaces):')
+newGame.placePlayerShip(10, newGame.player.gameboard.fleet.carrier);
 
-let cruiserCoords = prompt('Place your cruiser between 1 - 99 (takes 3 spaces):')
-newGame.placePlayerShip(parseInt(cruiserCoords), newGame.player.gameboard.fleet.cruiser)
+// let battleshipCoords = prompt('Place your battleship between 1 - 99 (takes 4 spaces):')
+newGame.placePlayerShip(30, newGame.player.gameboard.fleet.battleship)
 
-let destroyerCoords = prompt('Place your destroyer between 1 - 99 (takes 2 spaces):')
-newGame.placePlayerShip(parseInt(destroyerCoords), newGame.player.gameboard.fleet.destroyer)
+// let cruiserCoords = prompt('Place your cruiser between 1 - 99 (takes 3 spaces):')
+newGame.placePlayerShip(50, newGame.player.gameboard.fleet.cruiser)
+
+// let destroyerCoords = prompt('Place your destroyer between 1 - 99 (takes 2 spaces):')
+newGame.placePlayerShip(67, newGame.player.gameboard.fleet.destroyer)
 
 newGame.placeComputerShips();
 
