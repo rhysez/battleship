@@ -40,14 +40,6 @@ const Game = () => {
       }).showToast();
     } else {
       player.attack(computer, coord);
-      Toastify({
-        text: "You attacked " + coord,
-        className: "info",
-        style: {
-          background: "#65e665",
-          fontWeight: "bold",
-        }
-      }).showToast();
       waitingForAttack = true;
     }
  
@@ -74,14 +66,6 @@ const Game = () => {
 
     setTimeout(() => {
       computer.attack(player, computer.returnRandomCoord());
-      Toastify({
-        text: "Enemy attacked a random cell",
-        className: "info",
-        style: {
-          background: "#d6383a",
-          fontWeight: "bold",
-        }
-      }).showToast();
       waitingForAttack = false;
     }, 2000);
   };

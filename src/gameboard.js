@@ -38,6 +38,14 @@ const Gameboard = () => {
       case fleet.carrier:
         fleet.carrier.hit();
         fleet.carrier.isSunk();
+        Toastify({
+          text: "Carrier took a hit!",
+          className: "info",
+          style: {
+            background: "#d6383a",
+            fontWeight: "bold",
+          }
+        }).showToast();
 
         if (fleet.carrier.sunk === true) {
           Toastify({
@@ -53,6 +61,14 @@ const Gameboard = () => {
       case fleet.battleship:
         fleet.battleship.hit();
         fleet.battleship.isSunk();
+        Toastify({
+          text: "Battleship took a hit!",
+          className: "info",
+          style: {
+            background: "#d6383a",
+            fontWeight: "bold",
+          }
+        }).showToast();
 
         if (fleet.battleship.sunk === true) {
           Toastify({
@@ -68,6 +84,14 @@ const Gameboard = () => {
       case fleet.cruiser:
         fleet.cruiser.hit();
         fleet.cruiser.isSunk();
+        Toastify({
+          text: "Cruiser took a hit!",
+          className: "info",
+          style: {
+            background: "#d6383a",
+            fontWeight: "bold",
+          }
+        }).showToast();
 
         if (fleet.cruiser.sunk === true) {
           Toastify({
@@ -83,6 +107,14 @@ const Gameboard = () => {
       case fleet.destroyer:
         fleet.destroyer.hit();
         fleet.destroyer.isSunk();
+        Toastify({
+          text: "Destroyer took a hit!",
+          className: "info",
+          style: {
+            background: "#d6383a",
+            fontWeight: "bold",
+          }
+        }).showToast();
 
         if (fleet.destroyer.sunk === true) {
           Toastify({
@@ -97,7 +129,14 @@ const Gameboard = () => {
 
       default:
         missedAttacksList.push(coords);
-        console.log(`Missed co-ordinates list: ${missedAttacksList}`);
+        Toastify({
+          text: "Miss!",
+          className: "info",
+          style: {
+            background: "gray",
+            fontWeight: "bold",
+          }
+        }).showToast();
     }
 
     gameOver();
