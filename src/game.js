@@ -34,7 +34,8 @@ const Game = () => {
         text: "You must wait to attack",
         className: "info",
         style: {
-          background: "linear-gradient(to right, #00b09b, #96c93d)",
+          background: "#f05959",
+          fontSize: 12
         }
       }).showToast();
     } else {
@@ -43,7 +44,7 @@ const Game = () => {
         text: "You attacked " + coord,
         className: "info",
         style: {
-          background: "linear-gradient(to right, #00b09b, #96c93d)",
+          background: "#65e665",
         }
       }).showToast();
       waitingForAttack = true;
