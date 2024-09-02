@@ -139,7 +139,12 @@ const Gameboard = () => {
         }).showToast();
     }
 
-    gameOver();
+    if (fleet.carrier.sunk == true &&
+        fleet.battleship.sunk == true &&
+        fleet.cruiser.sunk == true &&
+        fleet.destroyer.sunk == true) {
+      gameOver();
+    }
   }
 
   return {
