@@ -1,6 +1,5 @@
 import { Player } from "./player.js";
 import Toastify from 'toastify-js';
-// import "toastify-js/src/toastify.css"
 
 const Game = () => {
   const player = Player();
@@ -30,18 +29,25 @@ const Game = () => {
   };
 
   const makeAttack = (coord) => {
-    // TODO: Popup toast to notify player they must wait to attack
-    if (waitingForAttack) return "You must wait to attack";
-
-    player.attack(computer, coord);
-    Toastify({
-      text: "This is a toast",
-      className: "info",
-      style: {
-        background: "linear-gradient(to right, #00b09b, #96c93d)",
-      }
-    }).showToast();
-    waitingForAttack = true;
+    if (waitingForAttack) {
+      return Toastify({
+        text: "You must wait to attack",
+        className: "info",
+        style: {
+          background: "linear-gradient(to right, #00b09b, #96c93d)",
+        }
+      }).showToast();
+    } else {
+      player.attack(computer, coord);
+      Toastify({
+        text: "You attacked " + coord,
+        className: "info",
+        style: {
+          background: "linear-gradient(to right, #00b09b, #96c93d)",
+        }
+      }).showToast();
+      waitingForAttack = true;
+    }
  
     switch (true){
       case newGame.computer.gameboard.board[coord] === newGame.computer.gameboard.fleet.carrier:
@@ -87,16 +93,9 @@ const elements = () => {
   const playerGameboard = document.getElementById("playerGameboard");
   const computerGameboard = document.getElementById("computerGameboard");
   const cell = document.getElementsByClassName("cell");
-  const results = document.getElementById('results');
 
   let playerCells = []
   let computerCells = []
-
-  const appendResult = (outcome) => {
-    let result = document.createElement('div')
-    result.textContent = outcome
-    results.appendChild(result)
-  }
 
   const fillCellColor = (id) => {
     let getCell = document.getElementById(id);
@@ -129,10 +128,8 @@ const elements = () => {
     playerGameboard,
     computerGameboard,
     cell,
-    results,
     playerCells,
     computerCells,
-    appendResult,
     fillCellColor,
     renderPlayerGameboard,
     renderComputerGameboard,
