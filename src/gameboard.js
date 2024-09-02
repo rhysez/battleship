@@ -28,9 +28,39 @@ const Gameboard = () => {
     }
   }
 
-  // TODO: Make this do something...
+  // TODO: Add a play again button
   function gameOver() {
-   console.log("game over!")
+   const playerGameboard = document.getElementById("playerGameboard");
+   const computerGameboard = document.getElementById("computerGameboard");
+   const split = document.getElementById("split");
+   const container = document.getElementById("gameboards");
+
+   while (playerGameboard.firstChild) {
+     playerGameboard.removeChild(playerGameboard.firstChild);
+   }
+   while (computerGameboard.firstChild) {
+     computerGameboard.removeChild(computerGameboard.firstChild);
+   }
+
+    split.remove()
+    playerGameboard.remove()
+    computerGameboard.remove()
+    container.style.display = "flex"
+    container.style.flexDirection = "column"
+    container.style.alignItems = "center"
+    container.style.gap = "6rem"
+    container.textContent = "Game over!"
+    container.style.fontSize = "30px";
+    container.style.color = "white";
+
+    let playAgainButton = document.createElement("button");
+    playAgainButton.textContent = "Play again";
+    playAgainButton.id = "playAgainButton";
+    playAgainButton.addEventListener("click", () => {
+      window.location.reload();
+    });
+
+    container.appendChild(playAgainButton);
   }
 
   function recieveAttack(coords) {

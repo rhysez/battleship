@@ -108,3 +108,14 @@ h1 {
     transition: all .25s ease-in-out;
     color: white;
 }
+
+#playAgainButton {
+    background-color: ghostwhite;
+    font-size: 2rem;
+    animation: fadeIn 0.5s;
+    transition: all .25s ease-in-out;
+    color: black;
+    border-radius: 10px;
+    border: none;
+    padding: 1rem 1rem;
+}
