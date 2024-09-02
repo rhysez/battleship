@@ -144,19 +144,17 @@ element.renderPlayerGameboard();
 element.renderComputerGameboard();
 
 // stage 3 - place ships
-// pass in parseInt(shipCoords)
+let carrierCoords = prompt('Place your carrier between 1 - 99 (takes 5 spaces):')
+newGame.placePlayerShip(parseInt(carrierCoords), newGame.player.gameboard.fleet.carrier);
 
-// let carrierCoords = prompt('Place your carrier between 1 - 99 (takes 5 spaces):')
-newGame.placePlayerShip(10, newGame.player.gameboard.fleet.carrier);
+let battleshipCoords = prompt('Place your battleship between 1 - 99 (takes 4 spaces):')
+newGame.placePlayerShip(parseInt(battleshipCoords), newGame.player.gameboard.fleet.battleship)
 
-// let battleshipCoords = prompt('Place your battleship between 1 - 99 (takes 4 spaces):')
-newGame.placePlayerShip(30, newGame.player.gameboard.fleet.battleship)
+let cruiserCoords = prompt('Place your cruiser between 1 - 99 (takes 3 spaces):')
+newGame.placePlayerShip(parseInt(cruiserCoords), newGame.player.gameboard.fleet.cruiser)
 
-// let cruiserCoords = prompt('Place your cruiser between 1 - 99 (takes 3 spaces):')
-newGame.placePlayerShip(50, newGame.player.gameboard.fleet.cruiser)
-
-// let destroyerCoords = prompt('Place your destroyer between 1 - 99 (takes 2 spaces):')
-newGame.placePlayerShip(67, newGame.player.gameboard.fleet.destroyer)
+let destroyerCoords = prompt('Place your destroyer between 1 - 99 (takes 2 spaces):')
+newGame.placePlayerShip(parseInt(destroyerCoords), newGame.player.gameboard.fleet.destroyer)
 
 newGame.placeComputerShips();
 
