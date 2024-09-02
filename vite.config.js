@@ -1,5 +1,9 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-    // Vite configuration options go here
+    root: 'src',
+    build: {
+        outDir: '../dist',
+        emptyOutDir: true, // also necessary
+    }
 });

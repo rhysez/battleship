@@ -7,7 +7,9 @@
   },
   "scripts": {
     "test": "jest",
-    "start": "open http://localhost:8080 && node src/game.js"
+    "start": "open http://localhost:8080 && node src/game.js",
+    "dev": "vite src",
+    "build": "vite build --emptyOutDir"
   },
   "jest": {
     "transform": {
