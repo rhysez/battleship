@@ -20,34 +20,10 @@ const Gameboard = () => {
     }
   }
 
-  function placeShip(ship, coords) {
+  function placeShip(ship, element, coords) {
     ship.placement = coords;
-    switch (true) {
-      case ship.size == 5:
-        board[coords] = ship;
-        board[coords + 1] = ship;
-        board[coords + 2] = ship;
-        board[coords + 3] = ship;
-        board[coords + 4] = ship;
-        break;
-
-      case ship.size == 4:
-        board[coords] = ship;
-        board[coords + 1] = ship;
-        board[coords + 2] = ship;
-        board[coords + 3] = ship;
-        break;
-
-      case ship.size == 3:
-        board[coords] = ship;
-        board[coords + 1] = ship;
-        board[coords + 2] = ship;
-        break;
-
-      case ship.size == 2:
-        board[coords] = ship;
-        board[coords + 1] = ship;
-        break;
+    for (let i = 0; i < ship.size; i++) {
+      board[coords + i] = ship;
     }
   }
 
@@ -117,7 +93,6 @@ const Gameboard = () => {
     placeShip,
     missedAttacksList,
     createBoard,
-    placeShip,
     fleet,
     gameOver,
     recieveAttack,

@@ -13,69 +13,18 @@ const Game = () => {
   };
 
   // uses pre-set co-ordinates for now
-  const placePlayerCarrier = (coords) => {
-    player.gameboard.placeShip(player.gameboard.fleet.carrier, coords);
-    element.fillCellColor(coords);
-    element.fillCellColor(coords + 1);
-    element.fillCellColor(coords + 2);
-    element.fillCellColor(coords + 3);
-    element.fillCellColor(coords + 4);
-    console.log(
-      `---Player Carrier has been placed at ${coords}, ${coords + 1}, ${
-        coords + 2
-      }, ${coords + 3}, ${coords + 4}---`
-    );
-  };
-
-  const placePlayerBattleship = (coords) => {
-    player.gameboard.placeShip(player.gameboard.fleet.battleship, coords);
-    element.fillCellColor(coords);
-    element.fillCellColor(coords + 1);
-    element.fillCellColor(coords + 2);
-    element.fillCellColor(coords + 3);
-    console.log(
-      `---Player Battleship has been placed at ${coords}, ${coords + 1}, ${
-        coords + 2
-      }, ${coords + 3}---`
-    );
-  };
-
-  const placePlayerCruiser = (coords) => {
-    player.gameboard.placeShip(player.gameboard.fleet.cruiser, coords);
-    element.fillCellColor(coords);
-    element.fillCellColor(coords + 1);
-    element.fillCellColor(coords + 2);
-    console.log(
-      `---Player Cruiser has been placed at ${coords}, ${coords + 1}, ${
-        coords + 2
-      }, ${coords + 3}---`
-    );
-  };
-
-  const placePlayerDestroyer = (coords) => {
-    player.gameboard.placeShip(player.gameboard.fleet.destroyer, coords);
-    element.fillCellColor(coords);
-    element.fillCellColor(coords + 1);
-    console.log(
-      `---Player Destroyer has been placed at ${coords}, ${coords + 1}---`
-    );
+  const placePlayerShip = (coords, ship) => {
+    player.gameboard.placeShip(ship, element, coords);
+    for (let i = 0; i < ship.size; i++) {
+      element.fillCellColor(coords + i);
+    }
   };
 
   const placeComputerShips = () => {
     computer.gameboard.placeShip(computer.gameboard.fleet.carrier, 10);
-    console.log(
-      `---Computer Carrier has been placed at ${10}, ${11}, ${12}, ${13}, ${14}---`
-    );
     computer.gameboard.placeShip(computer.gameboard.fleet.battleship, 30);
-    console.log(
-      `---Computer Battleship has been placed at ${30}, ${31}, ${32}, ${33}---`
-    );
     computer.gameboard.placeShip(computer.gameboard.fleet.cruiser, 40);
-    console.log(
-      `---Computer Cruiser has been placed at ${40}, ${41}, ${42}, ${43}---`
-    );
     computer.gameboard.placeShip(computer.gameboard.fleet.destroyer, 80);
-    console.log(`---Computer Destroyer has been placed at ${80}, ${81}---`);
   };
 
   const makeAttack = (coord) => {
@@ -112,12 +61,9 @@ const Game = () => {
     computer,
     isGameOver,
     setUpPlayersAndBoards,
-    placePlayerCarrier,
-    placePlayerBattleship,
-    placePlayerCruiser,
-    placePlayerDestroyer,
     placeComputerShips,
     makeAttack,
+    placePlayerShip,
   };
 };
 
@@ -191,17 +137,17 @@ newGame.computer.gameboard.createBoard();
 element.renderPlayerGameboard();
 element.renderComputerGameboard();
 // stage 3 - place ships
-let placeCarrier = prompt('Place your carrier between 1 - 99 (takes 5 spaces):')
-newGame.placePlayerCarrier(parseInt(placeCarrier));
+let carrierCoords = prompt('Place your carrier between 1 - 99 (takes 5 spaces):')
+newGame.placePlayerShip(parseInt(carrierCoords), newGame.player.gameboard.fleet.carrier);
 
-let placeBattleship = prompt('Place your battleship between 1 - 99 (takes 4 spaces):')
-newGame.placePlayerBattleship(parseInt(placeBattleship));
+let battleshipCoords = prompt('Place your battleship between 1 - 99 (takes 4 spaces):')
+newGame.placePlayerShip(parseInt(battleshipCoords), newGame.player.gameboard.fleet.battleship)
 
-let placeCruiser = prompt('Place your cruiser between 1 - 99 (takes 3 spaces):')
-newGame.placePlayerCruiser(parseInt(placeCruiser));
+let cruiserCoords = prompt('Place your cruiser between 1 - 99 (takes 3 spaces):')
+newGame.placePlayerShip(parseInt(cruiserCoords), newGame.player.gameboard.fleet.cruiser)
 
-let placeDestroyer = prompt('Place your destroyer between 1 - 99 (takes 2 spaces):')
-newGame.placePlayerDestroyer(parseInt(placeDestroyer));
+let destroyerCoords = prompt('Place your destroyer between 1 - 99 (takes 2 spaces):')
+newGame.placePlayerShip(parseInt(destroyerCoords), newGame.player.gameboard.fleet.destroyer)
 
 newGame.placeComputerShips();
 
